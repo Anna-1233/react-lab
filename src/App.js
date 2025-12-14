@@ -8,13 +8,12 @@ function App() {
     const [description, setDescription] = useState('A movie about a robot');
 
 
-
     function handleChange(event) {
         // console.log(event.target.value);
         setTitle(event.target.value);
     }
 
-    function handleClick(){
+    function handleClick() {
         alert(title)
     }
 
@@ -30,6 +29,12 @@ function App() {
         message = "Tytuł jest bardzo długi.";
     }
 
+    const movies = [
+        {title: "Wall-E"},
+        {title: "Pulp Fiction"},
+        {title: "Matrix"},
+        {title: "1670"},
+    ];
 
     return (
         <div>
@@ -44,6 +49,7 @@ function App() {
             <input type="text" value={title} onChange={(event) => setTitle(event.target.value)}/>
             {/*<button type="button" onClick={handleClick}>Pokaż tytuł filmu</button>*/}
             <button type="button" onClick={() => alert(title)}>Pokaż tytuł filmu</button>
+            <ul>{movies.map((movie) => <li key={movie.title}>{movie.title}</li>)}</ul>
         </div>
     );
 }
