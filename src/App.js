@@ -14,6 +14,11 @@ function App() {
         setTitle(event.target.value);
     }
 
+    function handleClick(){
+        alert(title)
+    }
+
+
     const titleLength = title.trim().length;
 
     let message = null;
@@ -34,7 +39,11 @@ function App() {
             {titleLength > 0 && (
                 <p style={{color: "steelblue"}}>{message}</p>
             )}
-            <input type="text" value={title} onChange={handleChange}/>
+            {/*// {title.length > 0 && <div>{message}</div>*/}
+            {/*<input type="text" value={title} onChange={handleChange}/>*/}
+            <input type="text" value={title} onChange={(event) => setTitle(event.target.value)}/>
+            {/*<button type="button" onClick={handleClick}>Pokaż tytuł filmu</button>*/}
+            <button type="button" onClick={() => alert(title)}>Pokaż tytuł filmu</button>
         </div>
     );
 }
